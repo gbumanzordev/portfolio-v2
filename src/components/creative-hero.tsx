@@ -129,7 +129,7 @@ export function CreativeHero() {
       }
     }
 
-    init(canvas)
+    init(canvas)()
 
     // Animation loop
     const animate = () => {
