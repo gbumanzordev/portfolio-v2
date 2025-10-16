@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { useEffect, useRef } from "react"
-import { motion } from "framer-motion"
+import { useEffect, useRef } from 'react'
+import { motion } from 'framer-motion'
 
 export function CreativeHero() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -10,7 +10,7 @@ export function CreativeHero() {
     const canvas = canvasRef.current
     if (!canvas) return
 
-    const ctx = canvas.getContext("2d")
+    const ctx = canvas.getContext('2d')
     if (!ctx) return
 
     let devicePixelRatio: number
@@ -27,7 +27,7 @@ export function CreativeHero() {
     }
 
     setCanvasDimensions()
-    window.addEventListener("resize", setCanvasDimensions)
+    window.addEventListener('resize', setCanvasDimensions)
 
     // Mouse position
     let mouseX = 0
@@ -35,7 +35,7 @@ export function CreativeHero() {
     let targetX = 0
     let targetY = 0
 
-    window.addEventListener("mousemove", (e) => {
+    window.addEventListener('mousemove', (e) => {
       const rect = canvas.getBoundingClientRect()
       targetX = e.clientX - rect.left
       targetY = e.clientY - rect.top
@@ -107,7 +107,6 @@ export function CreativeHero() {
 
     // Create particle grid
     const particlesArray: Particle[] = []
-    const particleCount = 1000
     const gridSize = 30
 
     function init() {
@@ -166,22 +165,22 @@ export function CreativeHero() {
     animate()
 
     // Handle window resize
-    window.addEventListener("resize", init)
+    window.addEventListener('resize', init)
 
     return () => {
-      window.removeEventListener("resize", setCanvasDimensions)
-      window.removeEventListener("resize", init)
+      window.removeEventListener('resize', setCanvasDimensions)
+      window.removeEventListener('resize', init)
     }
   }, [])
 
   return (
     <motion.div
-      className="w-full h-[400px] md:h-[500px] relative"
+      className='w-full h-[400px] md:h-[500px] relative'
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      <canvas ref={canvasRef} className="w-full h-full" style={{ display: "block" }} />
+      <canvas ref={canvasRef} className='w-full h-full' style={{ display: 'block' }} />
     </motion.div>
   )
 }

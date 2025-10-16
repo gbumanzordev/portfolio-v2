@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { useState, useEffect } from "react"
-import { motion, useScroll, useSpring } from "framer-motion"
+import { useState, useEffect } from 'react'
+import { motion, useScroll, useSpring } from 'framer-motion'
 
 export function ScrollProgress() {
   const [isVisible, setIsVisible] = useState(false)
@@ -17,13 +17,13 @@ export function ScrollProgress() {
       }
     }
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (
     <motion.div
-      className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-gray-600 to-gray-400 origin-left z-50"
+      className='fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-gray-600 to-gray-400 origin-left z-50'
       style={{ scaleX, opacity: isVisible ? 1 : 0 }}
       transition={{ opacity: { duration: 0.3 } }}
     />
