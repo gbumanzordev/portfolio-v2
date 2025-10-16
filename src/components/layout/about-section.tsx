@@ -34,16 +34,16 @@ export function AboutSection() {
           <div className='space-y-6'>
             <GlassmorphicCard>
               <p className='text-lg text-zinc-300'>
-                I'm a passionate software engineer with experience building web applications and digital products. I
-                specialize in frontend development with React and Next.js, but I'm also comfortable working with backend
+                I&#39;m a passionate software engineer with experience building web applications and digital products. I
+                specialize in frontend development with React and Next.js, but I&#39;m also comfortable working with backend
                 technologies.
               </p>
               <p className='text-lg text-zinc-300 mt-4'>
-                My journey in tech started with a strong foundation in software development. I've worked with various
+                My journey in tech started with a strong foundation in software development. I&#39;ve worked with various
                 companies to create intuitive, performant, and accessible digital experiences.
               </p>
               <p className='text-lg text-zinc-300 mt-4'>
-                When I'm not coding, you can find me exploring new technologies, contributing to open-source projects,
+                When I&#39;m not coding, you can find me exploring new technologies, contributing to open-source projects,
                 and staying up-to-date with the latest industry trends.
               </p>
 

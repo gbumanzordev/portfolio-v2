@@ -96,7 +96,7 @@ export function CreativeHero() {
         }
       }
 
-      draw() {
+      draw(ctx: CanvasRenderingContext2D) {
         ctx.fillStyle = this.color
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
@@ -109,25 +109,27 @@ export function CreativeHero() {
     const particlesArray: Particle[] = []
     const gridSize = 30
 
-    function init() {
-      particlesArray.length = 0
+    function init(canvas: HTMLCanvasElement) {
+      return function () {
+        particlesArray.length = 0
 
-      const canvasWidth = canvas.width / devicePixelRatio
-      const canvasHeight = canvas.height / devicePixelRatio
+        const canvasWidth = canvas.width / devicePixelRatio
+        const canvasHeight = canvas.height / devicePixelRatio
 
-      const numX = Math.floor(canvasWidth / gridSize)
-      const numY = Math.floor(canvasHeight / gridSize)
+        const numX = Math.floor(canvasWidth / gridSize)
+        const numY = Math.floor(canvasHeight / gridSize)
 
-      for (let y = 0; y < numY; y++) {
-        for (let x = 0; x < numX; x++) {
-          const posX = x * gridSize + gridSize / 2
-          const posY = y * gridSize + gridSize / 2
-          particlesArray.push(new Particle(posX, posY))
+        for (let y = 0; y < numY; y++) {
+          for (let x = 0; x < numX; x++) {
+            const posX = x * gridSize + gridSize / 2
+            const posY = y * gridSize + gridSize / 2
+            particlesArray.push(new Particle(posX, posY))
+          }
         }
       }
     }
 
-    init()
+    init(canvas)
 
     // Animation loop
     const animate = () => {
@@ -140,7 +142,7 @@ export function CreativeHero() {
       // Draw connections
       for (let i = 0; i < particlesArray.length; i++) {
         particlesArray[i].update()
-        particlesArray[i].draw()
+        particlesArray[i].draw(ctx)
 
         // Draw connections
         for (let j = i; j < particlesArray.length; j++) {
@@ -165,11 +167,11 @@ export function CreativeHero() {
     animate()
 
     // Handle window resize
-    window.addEventListener('resize', init)
+    window.addEventListener('resize', init(canvas))
 
     return () => {
       window.removeEventListener('resize', setCanvasDimensions)
-      window.removeEventListener('resize', init)
+      window.removeEventListener('resize', init(canvas))
     }
   }, [])
 

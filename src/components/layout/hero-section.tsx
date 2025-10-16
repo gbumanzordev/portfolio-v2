@@ -21,7 +21,7 @@ export function  HeroSection() {
             </div>
           </div>
           <h1 className='text-5xl md:text-7xl font-bold tracking-tight'>
-            <span className='block'>Hello, there, I'm</span>
+            <span className='block'>Hello, there, I&#39;m</span>
             <span className='bg-clip-text text-transparent bg-gradient-to-r from-gray-300 to-white'>
               Gerson Umanzor
             </span>

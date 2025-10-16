@@ -7,23 +7,15 @@ import { motion } from 'framer-motion'
 import { Send } from 'lucide-react'
 
 import { Button, Input, Textarea } from '@/components/ui'
-// import { useToast } from "@/hooks/use-toast"
 
 export function ContactForm() {
-  // const { toast } = useToast()
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1500))
-
-    // toast({
-    //   title: "Message sent!",
-    //   description: "Thanks for reaching out. I'll get back to you soon.",
-    // })
 
     setIsSubmitting(false)
     e.currentTarget.reset()
